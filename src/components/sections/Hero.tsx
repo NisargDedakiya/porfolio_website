@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, Shield, Award, Briefcase } from "lucide-react";
+import { Shield, Award, Briefcase } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 import { Button } from "@/components/ui/Button";
 import dynamic from "next/dynamic";
@@ -138,13 +138,25 @@ export function Hero() {
 
       {/* Scroll indicator */}
       <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 opacity-65 hover:opacity-100 transition-opacity cursor-pointer"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-65 hover:opacity-100 transition-opacity cursor-pointer"
         onClick={() => scrollTo("about")}
       >
-        <span className="font-sans text-[10px] tracking-wider text-text-secondary uppercase select-none font-semibold">
+        <span className="font-sans text-[9px] tracking-widest text-text-secondary uppercase select-none font-bold">
           Explore Dashboard
         </span>
-        <ChevronDown className="w-4 h-4 text-brand-primary animate-bounce" />
+        <div className="w-[18px] h-[30px] rounded-full border-2 border-brand-primary/60 flex justify-center p-1.5 mt-0.5">
+          <motion.div
+            animate={{
+              y: [0, 8, 0],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="w-1 h-1.5 rounded-full bg-brand-primary"
+          />
+        </div>
       </div>
     </section>
   );
