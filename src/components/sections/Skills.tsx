@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Shield, Key, Terminal as TerminalIcon, Cpu, Settings } from "lucide-react";
-import { skillsData, SkillCategory, Skill } from "@/data/portfolio";
+import { skillsData, Skill } from "@/data/portfolio";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { TiltCard } from "@/components/ui/TiltCard";
 import { Magnetic } from "@/components/ui/Magnetic";

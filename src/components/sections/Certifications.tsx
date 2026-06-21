@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Award, ShieldAlert, ShieldCheck, FileCheck, Terminal as TerminalIcon } from "lucide-react";
+import { Award, ShieldAlert, ShieldCheck, FileCheck } from "lucide-react";
 import { certificationsData, Certification } from "@/data/portfolio";
 import { GlassCard } from "@/components/ui/GlassCard";
 

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, Search, Eye, Calendar, Clock, Terminal as TerminalIcon } from "lucide-react";
+import { Search, Eye, Calendar, Clock } from "lucide-react";
 import { blogPosts, BlogPost } from "@/data/portfolio";
 import { GlassCard } from "@/components/ui/GlassCard";
 

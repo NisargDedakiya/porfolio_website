@@ -78,10 +78,11 @@ export async function POST(request: Request) {
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : "Failed to process email dispatch.";
     console.error("Nodemailer transmission failure:", error);
     return NextResponse.json(
-      { error: error.message || "Failed to process email dispatch." },
+      { error: errorMessage },
       { status: 500 }
     );
   }

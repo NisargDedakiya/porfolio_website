@@ -102,7 +102,7 @@ export function Progression() {
             className="absolute left-[8px] top-2 bottom-2 w-[1px] bg-gradient-to-b from-brand-primary via-brand-secondary to-brand-success pointer-events-none"
           />
 
-          {learningTimeline.map((event, idx) => {
+          {learningTimeline.map((event) => {
             const cardVariants = getCardVariants(event.status);
 
             return (

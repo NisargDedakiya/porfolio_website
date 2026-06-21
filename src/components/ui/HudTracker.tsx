@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Shield, ShieldAlert, Cpu, Network, Lock, Unlock } from "lucide-react";
+import { Shield, Lock, Unlock } from "lucide-react";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
 interface ClearanceLevel {
@@ -16,9 +16,9 @@ const clearanceLevels: ClearanceLevel[] = [
   { id: "skills", level: 2, label: "Capabilities", codename: "OP_02_CAPS" },
   { id: "projects", level: 3, label: "Operations Archive", codename: "OP_03_ARCH" },
   { id: "progression", level: 4, label: "Operator Progression", codename: "OP_04_PROG" },
-  { id: "engagements", level: 5, label: "Active Engagements", codename: "OP_05_ENGA" },
+  { id: "bug-bounty", level: 5, label: "Active Engagements", codename: "OP_05_ENGA" },
   { id: "certifications", level: 6, label: "Qualifications", codename: "OP_06_QUAL" },
-  { id: "blog", level: 7, label: "Research Log", codename: "OP_07_RESE" },
+  { id: "research", level: 7, label: "Research Log", codename: "OP_07_RESE" },
   { id: "contact", level: 8, label: "Mission Contact", codename: "OP_08_COMM" },
 ];
 
@@ -29,12 +29,11 @@ export function HudTracker() {
     "skills",
     "projects",
     "progression",
-    "engagements",
+    "bug-bounty",
     "certifications",
-    "blog",
+    "research",
     "contact",
   ]);
-  const [currentLevel, setCurrentLevel] = useState(0);
   const [ping, setPing] = useState(24);
 
   // Simple simulated system fluctuation for ping
@@ -45,17 +44,11 @@ export function HudTracker() {
     return () => clearInterval(interval);
   }, []);
 
-  // Update clearance level based on active section
-  useEffect(() => {
-    if (!activeSection || activeSection === "hero") {
-      setCurrentLevel(0);
-      return;
-    }
-    const matchingLevel = clearanceLevels.find((level) => level.id === activeSection);
-    if (matchingLevel) {
-      setCurrentLevel(matchingLevel.level);
-    }
-  }, [activeSection]);
+  // Compute clearance level dynamically during render to avoid cascading state updates
+  const matchingLevel = activeSection && activeSection !== "hero"
+    ? clearanceLevels.find((level) => level.id === activeSection)
+    : null;
+  const currentLevel = matchingLevel ? matchingLevel.level : 0;
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);

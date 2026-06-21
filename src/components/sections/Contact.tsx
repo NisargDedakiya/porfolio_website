@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Mail, FileText, ShieldAlert, Terminal as TerminalIcon } from "lucide-react";
+import { Send, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { personalInfo } from "@/data/portfolio";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -38,7 +38,6 @@ export function Contact() {
   });
 
   const [status, setStatus] = useState<"idle" | "encrypting" | "sending" | "success" | "error">("idle");
-  const [logs, setLogs] = useState<string[]>([]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

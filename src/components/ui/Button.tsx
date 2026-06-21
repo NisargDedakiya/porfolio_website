@@ -28,7 +28,7 @@ export function Button({
   };
 
   const variantStyles = {
-    primary: "bg-brand-primary/10 border border-brand-primary text-brand-primary shadow-[0_0_15px_rgba(0,217,255,0.05)] hover:bg-brand-primary/25 hover:shadow-[0_0_20px_rgba(0,217,255,0.2)]",
+    primary: "bg-brand-primary/10 border border-brand-primary text-brand-primary shadow-[0_0_15px_rgba(255,77,77,0.05)] hover:bg-brand-primary/25 hover:shadow-[0_0_20px_rgba(255,77,77,0.2)]",
     secondary: "bg-brand-card border border-white/10 text-white hover:bg-white/5 hover:border-white/20",
     success: "bg-brand-success/10 border border-brand-success text-brand-success shadow-[0_0_15px_rgba(0,255,136,0.05)] hover:bg-brand-success/25 hover:shadow-[0_0_20px_rgba(0,255,136,0.2)]",
     warning: "bg-brand-warning/10 border border-brand-warning text-brand-warning shadow-[0_0_15px_rgba(245,158,11,0.05)] hover:bg-brand-warning/25 hover:shadow-[0_0_20px_rgba(245,158,11,0.2)]",
