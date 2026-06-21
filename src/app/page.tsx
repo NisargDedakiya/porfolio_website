@@ -39,8 +39,10 @@ export default function Home() {
   // Auto scroll to target section on load from rewritten subpaths (e.g. /about -> scroll to #about)
   useEffect(() => {
     if (!loading) {
-      const path = window.location.pathname.replace(/^\/|\/$/g, "");
+      let path = window.location.pathname.replace(/^\/|\/$/g, "");
       if (path) {
+        if (path === "blog") path = "research";
+        if (path === "engagements") path = "bug-bounty";
         setTimeout(() => {
           const element = document.getElementById(path);
           if (element) {
