@@ -56,7 +56,7 @@ export function BugBounty() {
                 key={platform.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: false, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: pIdx * 0.1 }}
               >
                 <GlassCard glowColor={glowColor} className="h-full flex flex-col justify-between gap-6">

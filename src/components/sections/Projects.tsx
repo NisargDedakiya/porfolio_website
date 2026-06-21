@@ -62,7 +62,7 @@ export function Projects() {
                 key={project.id}
                 initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: false, margin: "-100px" }}
                 transition={{ duration: 0.7, delay: idx * 0.1, ease: "easeOut" }}
               >
                 <TiltCard>

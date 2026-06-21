@@ -140,7 +140,7 @@ export function Skills() {
                             <motion.div
                               initial={{ width: 0 }}
                               whileInView={{ width: `${skill.level}%` }}
-                              viewport={{ once: true }}
+                              viewport={{ once: false }}
                               transition={{ duration: 1, delay: skillIdx * 0.1 }}
                               className={`absolute top-0 left-0 h-full rounded ${
                                 category.title.toLowerCase().includes("offensive")

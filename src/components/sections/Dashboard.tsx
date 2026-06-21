@@ -96,7 +96,7 @@ export function Dashboard() {
               key={stat.title}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
             >
               <GlassCard className="p-5 flex items-center gap-4 hover:scale-[1.02] transition-transform duration-300">
@@ -135,7 +135,7 @@ export function Dashboard() {
                   key={intel.title}
                   initial={{ opacity: 0, scale: 0.98 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
                 >
                   <GlassCard
