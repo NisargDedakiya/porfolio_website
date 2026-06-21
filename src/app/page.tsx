@@ -16,7 +16,7 @@ import { Dashboard } from "@/components/sections/Dashboard";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { personalInfo } from "@/data/portfolio";
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Custom premium SVGs for HackerOne and Bugcrowd
@@ -35,6 +35,26 @@ const BugcrowdIcon = ({ className }: { className?: string }) => (
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
+
+  // Auto scroll to target section on load from rewritten subpaths (e.g. /about -> scroll to #about)
+  useEffect(() => {
+    if (!loading) {
+      const path = window.location.pathname.replace(/^\/|\/$/g, "");
+      if (path) {
+        setTimeout(() => {
+          const element = document.getElementById(path);
+          if (element) {
+            const navbarHeight = 80;
+            const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+              top: elementPosition - navbarHeight,
+              behavior: "smooth",
+            });
+          }
+        }, 150);
+      }
+    }
+  }, [loading]);
 
   return (
     <>
