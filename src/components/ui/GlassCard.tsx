@@ -32,7 +32,7 @@ export function GlassCard({
     <motion.div
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, margin: "-100px" }}
+      viewport={{ once: true, margin: "-20px" }}
       transition={{ duration: 0.5, delay }}
       onClick={onClick}
       className={twMerge(

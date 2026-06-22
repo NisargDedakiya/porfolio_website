@@ -32,7 +32,7 @@ export function Certifications() {
   };
 
   return (
-    <section id="certifications" className="relative w-full py-24 bg-brand-bg/90 border-b border-brand-primary/5 z-10 px-6">
+    <section id="certifications" className="relative w-full py-16 md:py-24 bg-brand-bg/90 border-b border-brand-primary/5 z-10 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-16 border-b border-brand-primary/10 pb-6">
@@ -56,7 +56,7 @@ export function Certifications() {
               key={cert.name}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false, margin: "-50px" }}
+              viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.4, delay: cIdx * 0.05 }}
             >
               <GlassCard

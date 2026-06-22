@@ -21,7 +21,7 @@ export function About() {
   };
 
   return (
-    <section id="about" className="relative w-full py-24 bg-brand-bg/90 border-b border-white/5 z-10 px-6">
+    <section id="about" className="relative w-full py-16 md:py-24 bg-brand-bg/90 border-b border-white/5 z-10 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-16 border-b border-brand-primary/10 pb-6">
@@ -62,26 +62,26 @@ export function About() {
               </div>
 
               {/* Profile Details List */}
-              <div className="flex flex-col gap-3 font-sans text-xs text-text-secondary">
-                <div className="flex justify-between border-b border-white/5 py-2">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-white/40">Status</span>
-                  <span className="text-brand-success font-semibold">Active Student & Researcher</span>
+              <div className="flex flex-col gap-1 font-sans text-xs text-text-secondary">
+                <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/5 py-2.5 gap-1">
+                  <span className="text-[9px] font-mono uppercase tracking-wider text-white/40">Status</span>
+                  <span className="text-brand-success font-semibold sm:text-right">Active Student & Researcher</span>
                 </div>
-                <div className="flex justify-between border-b border-white/5 py-2">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-white/40">Specialization</span>
-                  <span className="text-brand-primary font-semibold">Offensive Security</span>
+                <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/5 py-2.5 gap-1">
+                  <span className="text-[9px] font-mono uppercase tracking-wider text-white/40">Specialization</span>
+                  <span className="text-brand-primary font-semibold sm:text-right">Offensive Security</span>
                 </div>
-                <div className="flex justify-between border-b border-white/5 py-2">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-white/40">Academic Track</span>
-                  <span className="text-white font-medium">B.Tech CSE Student</span>
+                <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/5 py-2.5 gap-1">
+                  <span className="text-[9px] font-mono uppercase tracking-wider text-white/40">Academic Track</span>
+                  <span className="text-white font-medium sm:text-right">B.Tech CSE Student</span>
                 </div>
-                <div className="flex justify-between border-b border-white/5 py-2">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-white/40">Focus Areas</span>
-                  <span className="text-brand-secondary font-semibold">Bug Bounty & Automation</span>
+                <div className="flex flex-col sm:flex-row sm:justify-between border-b border-white/5 py-2.5 gap-1">
+                  <span className="text-[9px] font-mono uppercase tracking-wider text-white/40">Focus Areas</span>
+                  <span className="text-brand-secondary font-semibold sm:text-right">Bug Bounty & Automation</span>
                 </div>
-                <div className="flex justify-between py-2">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-white/40">Platform Rank</span>
-                  <span className="text-brand-success font-bold">TryHackMe Top 1%</span>
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2.5 gap-1">
+                  <span className="text-[9px] font-mono uppercase tracking-wider text-white/40">Platform Rank</span>
+                  <span className="text-brand-success font-bold sm:text-right">TryHackMe Top 1%</span>
                 </div>
               </div>
             </GlassCard>

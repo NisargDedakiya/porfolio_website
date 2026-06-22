@@ -31,7 +31,7 @@ export function Projects() {
   };
 
   return (
-    <section id="projects" className="relative w-full py-24 bg-brand-bg/90 border-b border-white/5 z-10 px-6">
+    <section id="projects" className="relative w-full py-16 md:py-24 bg-brand-bg/90 border-b border-white/5 z-10 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-20 border-b border-brand-primary/10 pb-6">
@@ -106,17 +106,39 @@ export function Projects() {
                         </div>
 
                         {/* Role & Core Deployment Stack */}
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-text-secondary">
+                        <div className="flex flex-col gap-2.5 text-xs text-text-secondary">
                           <div className="flex items-center gap-1.5 font-sans">
-                             <span className="text-brand-secondary font-bold font-sans">Role:</span>
+                            <span className="text-brand-secondary font-bold font-sans">Role:</span>
                             <span className="text-white font-semibold">{project.role}</span>
                           </div>
+                          {project.securityFocus && (
+                            <div className="flex items-center gap-1.5 font-sans">
+                              <span className="text-brand-primary font-bold font-sans">Focus:</span>
+                              <span className="text-brand-success font-semibold px-2 py-0.5 border border-brand-success/15 bg-brand-success/5 rounded text-[10px] tracking-wide uppercase">{project.securityFocus}</span>
+                            </div>
+                          )}
                         </div>
 
                         {/* Description */}
                         <p className="text-sm text-text-secondary leading-relaxed font-sans">
                           {project.tagline}
                         </p>
+
+                        {/* Operational Telemetry Metrics */}
+                        {project.metrics && (
+                          <div className="grid grid-cols-3 gap-3 my-2 font-mono text-[10px]">
+                            {project.metrics.map((metric) => (
+                              <div key={metric.label} className="bg-brand-bg/60 border border-white/5 p-2 rounded flex flex-col gap-0.5 text-left">
+                                <span className="text-[7.5px] uppercase tracking-wider text-white/30 truncate">
+                                  {metric.label}
+                                </span>
+                                <span className="text-xs font-black text-white truncate">
+                                  {metric.value}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
 
                         {/* Desktop Tech Stack */}
                         <div className="hidden lg:flex flex-wrap gap-2 mt-1">
@@ -131,22 +153,22 @@ export function Projects() {
                         </div>
 
                         {/* Expandable Case Study Details Button */}
-                        <div className="flex flex-wrap items-center gap-4 mt-4 pt-4 border-t border-white/5">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-4 pt-4 border-t border-white/5">
                           <button
                             onClick={() => toggleExpand(project.id)}
                             suppressHydrationWarning
-                            className="flex items-center gap-1.5 text-xs text-brand-secondary hover:text-white font-semibold font-sans transition-colors"
+                            className="flex items-center gap-1.5 text-xs text-brand-secondary hover:text-white font-semibold font-sans transition-colors self-start sm:self-auto"
                           >
                             {isExpanded ? "Hide Details" : "View Case Study"}
                             <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
                           </button>
                           
-                          <div className="flex gap-2.5 ml-auto">
+                          <div className="flex flex-wrap gap-2.5 w-full sm:w-auto sm:ml-auto justify-start sm:justify-end">
                             {project.githubUrl && (
                               <Button
                                 variant="secondary"
                                 size="sm"
-                                className="text-[11px] px-3.5 py-1.5 font-sans border border-white/10 text-white hover:border-brand-primary/40 flex items-center gap-1.5"
+                                className="flex-1 sm:flex-none text-[11px] px-3.5 py-1.5 font-sans border border-white/10 text-white hover:border-brand-primary/40 flex items-center gap-1.5"
                                 onClick={() => window.open(project.githubUrl, "_blank")}
                               >
                                 <GitBranch className="w-3.5 h-3.5" />
@@ -157,7 +179,7 @@ export function Projects() {
                               <Button
                                 variant="primary"
                                 size="sm"
-                                className="text-[11px] px-3.5 py-1.5 font-sans flex items-center gap-1.5"
+                                className="flex-1 sm:flex-none text-[11px] px-3.5 py-1.5 font-sans flex items-center gap-1.5"
                                 onClick={() => window.open(project.liveUrl, "_blank")}
                               >
                                 <ExternalLink className="w-3.5 h-3.5" />

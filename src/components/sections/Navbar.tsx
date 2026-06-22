@@ -165,7 +165,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-[65px] left-0 w-full z-40 bg-brand-bg/95 border-b border-white/10 backdrop-blur-lg flex flex-col font-sans py-6 px-6 gap-4 shadow-2xl select-none"
+            className="fixed top-[65px] left-0 w-full max-h-[calc(100vh-70px)] overflow-y-auto z-40 bg-brand-bg/95 border-b border-white/10 backdrop-blur-lg flex flex-col font-sans py-6 px-6 gap-4 shadow-2xl select-none"
           >
             <div className="flex flex-col gap-2 tracking-wider">
               {navLinks.map((link) => {

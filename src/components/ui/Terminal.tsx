@@ -129,7 +129,7 @@ Resume:   ${personalInfo.contacts.resume}`
   return (
     <div
       onClick={focusInput}
-      className="relative w-full h-[350px] md:h-[400px] bg-brand-card/75 backdrop-blur-md rounded-lg border border-brand-primary/20 overflow-hidden font-mono flex flex-col text-xs shadow-2xl scanline"
+      className="relative w-full h-[350px] md:h-[400px] bg-brand-card/75 backdrop-blur-md rounded-lg border border-brand-primary/20 overflow-hidden font-mono flex flex-col text-[10px] md:text-xs shadow-2xl scanline"
     >
       {/* Terminal Header */}
       <div className="flex items-center justify-between bg-brand-bg/90 border-b border-brand-primary/10 px-4 py-2.5 z-10">
@@ -171,7 +171,8 @@ Resume:   ${personalInfo.contacts.resume}`
         onSubmit={handleCommandSubmit}
         className="flex items-center border-t border-brand-primary/10 bg-brand-bg/85 px-4 py-2 z-10"
       >
-        <span className="text-brand-success font-semibold mr-2 select-none">guest@nisarg-sec:~$</span>
+        <span className="text-brand-success font-semibold mr-2 select-none hidden sm:inline">guest@nisarg-sec:~$</span>
+        <span className="text-brand-success font-semibold mr-2 select-none sm:hidden">guest:~$</span>
         <input
           ref={inputRef}
           type="text"

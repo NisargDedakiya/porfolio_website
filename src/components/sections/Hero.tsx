@@ -41,7 +41,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-brand-bg px-6 py-24 z-10"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-brand-bg px-6 py-16 md:py-24 z-10"
     >
       {/* Grid overlay and visual radial glow */}
       <div className="absolute inset-0 cyber-grid opacity-[0.08] pointer-events-none" />
@@ -87,7 +87,7 @@ export function Hero() {
             {roles.map((role) => (
               <span
                 key={role.title}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium font-sans text-white/95 bg-brand-card/65 border border-white/5 hover:border-brand-secondary/35 transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-[10px] sm:text-xs font-medium font-sans text-white/95 bg-brand-card/65 border border-white/5 hover:border-brand-secondary/35 transition-colors shadow-sm"
               >
                 <span className="text-brand-secondary">{role.icon}</span>
                 {role.title}

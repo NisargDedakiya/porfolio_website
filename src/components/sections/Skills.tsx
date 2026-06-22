@@ -41,6 +41,20 @@ export function Skills() {
     }
   };
 
+  const getLevelLabel = (level: number) => {
+    if (level >= 88) return "Expert";
+    if (level >= 80) return "Advanced";
+    if (level >= 70) return "Intermediate";
+    return "Familiar";
+  };
+
+  const getLevelColor = (level: number) => {
+    if (level >= 88) return "text-brand-primary";
+    if (level >= 80) return "text-brand-secondary";
+    if (level >= 70) return "text-brand-success";
+    return "text-text-secondary";
+  };
+
   const categories = ["All", ...skillsData.map((c) => c.title)];
 
   const filteredCategories =
@@ -49,7 +63,7 @@ export function Skills() {
       : skillsData.filter((c) => c.title === activeCategory);
 
   return (
-    <section id="skills" className="relative w-full py-24 bg-brand-bg/95 border-b border-brand-primary/5 z-10 px-6">
+    <section id="skills" className="relative w-full py-16 md:py-24 bg-brand-bg/95 border-b border-brand-primary/5 z-10 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16 border-b border-brand-primary/10 pb-6">
@@ -113,56 +127,39 @@ export function Skills() {
                     </div>
 
                     {/* Skills Grid */}
-                    <div className="flex flex-col gap-5">
-                      {category.skills.map((skill, skillIdx) => (
-                        <div key={skill.name} className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-6">
+                      {category.skills.map((skill) => (
+                        <div key={skill.name} className="flex flex-col gap-3 p-4 bg-brand-bg/50 border border-white/5 rounded-lg hover:border-brand-secondary/20 transition-all duration-300">
                           {/* Name, Status, Percentage */}
                           <div className="flex items-center justify-between font-mono text-xs">
-                            <span className="text-white font-medium">{skill.name}</span>
+                            <span className="text-white font-bold text-sm tracking-tight">{skill.name}</span>
                             <div className="flex items-center gap-2">
                               {/* Status Pill */}
                               <Magnetic strength={0.12}>
                                 <span
-                                  className={`text-[8px] px-2 py-0.5 rounded-full border tracking-widest font-bold uppercase ${getStatusColor(
+                                  className={`text-[8px] px-2 py-0.5 rounded border tracking-widest font-bold uppercase ${getStatusColor(
                                     skill.status
                                   )}`}
                                 >
                                   {skill.status}
                                 </span>
                               </Magnetic>
-                              <span className="text-brand-primary font-bold">{skill.level}%</span>
+                              <span className={`font-mono text-[9px] px-2 py-0.5 rounded border uppercase font-bold tracking-wider ${getLevelColor(skill.level)} bg-white/2`}>
+                                {getLevelLabel(skill.level)}
+                              </span>
                             </div>
                           </div>
 
-                          {/* Progress Track */}
-                          <div className="relative w-full h-2 bg-brand-bg border border-white/5 rounded overflow-hidden">
-                            {/* Animated Progress Bar */}
-                            <motion.div
-                              initial={{ width: 0 }}
-                              whileInView={{ width: `${skill.level}%` }}
-                              viewport={{ once: false }}
-                              transition={{ duration: 1, delay: skillIdx * 0.1 }}
-                              className={`absolute top-0 left-0 h-full rounded ${
-                                category.title.toLowerCase().includes("offensive")
-                                  ? "bg-gradient-to-r from-brand-primary/80 to-brand-primary shadow-[0_0_10px_var(--brand-primary)]"
-                                  : category.title.toLowerCase().includes("defensive")
-                                  ? "bg-gradient-to-r from-brand-success/80 to-brand-success shadow-[0_0_10px_var(--brand-success)]"
-                                  : "bg-gradient-to-r from-brand-warning/80 to-brand-warning shadow-[0_0_10px_var(--brand-warning)]"
-                              }`}
-                            />
-                            
-                            {/* Grid Sub-Divisions */}
-                            <div className="absolute inset-0 flex justify-between pointer-events-none opacity-20">
-                              <div className="w-[1px] h-full bg-white/20" />
-                              <div className="w-[1px] h-full bg-white/20" />
-                              <div className="w-[1px] h-full bg-white/20" />
-                              <div className="w-[1px] h-full bg-white/20" />
-                              <div className="w-[1px] h-full bg-white/20" />
-                              <div className="w-[1px] h-full bg-white/20" />
-                              <div className="w-[1px] h-full bg-white/20" />
-                              <div className="w-[1px] h-full bg-white/20" />
-                              <div className="w-[1px] h-full bg-white/20" />
-                            </div>
+                          {/* Render Sub-skills Tags */}
+                          <div className="flex flex-wrap gap-1.5 mt-1">
+                            {skill.subskills.map((sub) => (
+                              <span
+                                key={sub}
+                                className="bg-brand-card/70 border border-white/5 px-2 py-0.5 rounded text-[9px] text-text-secondary font-sans tracking-wide"
+                              >
+                                {sub}
+                              </span>
+                            ))}
                           </div>
                         </div>
                       ))}

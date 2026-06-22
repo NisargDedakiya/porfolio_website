@@ -2,6 +2,7 @@ export interface Skill {
   name: string;
   level: number; // percentage or skill level 1-100
   status: "Armed" | "Compiling" | "Ready" | "Active";
+  subskills: string[];
 }
 
 export interface SkillCategory {
@@ -23,6 +24,8 @@ export interface Project {
   status: "Operational" | "Beta" | "Development" | "Planned";
   role: string;
   image: string;
+  metrics?: { label: string; value: string }[];
+  securityFocus?: string;
 }
 
 export interface Certification {
@@ -87,36 +90,36 @@ export const skillsData: SkillCategory[] = [
   {
     title: "Reconnaissance",
     skills: [
-      { name: "Nmap", level: 80, status: "Ready" },
-      { name: "Subfinder", level: 85, status: "Active" },
-      { name: "Amass", level: 75, status: "Compiling" },
-      { name: "Asset Discovery", level: 90, status: "Armed" }
+      { name: "Nmap", level: 80, status: "Ready", subskills: ["Port Scanning", "NSE Scripting", "OS Detection", "Network Mapping"] },
+      { name: "Subfinder", level: 85, status: "Active", subskills: ["Passive Enumeration", "API Integration", "Wildcard Filtering"] },
+      { name: "Amass", level: 75, status: "Compiling", subskills: ["DNS Enumeration", "ASN Mapping", "Graph Data Sync"] },
+      { name: "Asset Discovery", level: 90, status: "Armed", subskills: ["Permutation Scanning", "Active Probing", "Port Correlation"] }
     ]
   },
   {
     title: "Web Exploitation",
     skills: [
-      { name: "Burp Suite", level: 90, status: "Active" },
-      { name: "OWASP Testing", level: 88, status: "Armed" },
-      { name: "Authentication Testing", level: 85, status: "Active" },
-      { name: "API Security", level: 82, status: "Ready" }
+      { name: "Burp Suite", level: 90, status: "Active", subskills: ["Interception", "Request Repeater/Intruder", "Collaborator OOB", "JWT Audits"] },
+      { name: "OWASP Testing", level: 88, status: "Armed", subskills: ["OWASP Top 10", "Business Logic Testing", "Input Sanitization", "Auth Bypass"] },
+      { name: "Authentication Testing", level: 85, status: "Active", subskills: ["OAuth Flow Auditing", "JWT Validation Checks", "Session Fixation"] },
+      { name: "API Security", level: 82, status: "Ready", subskills: ["REST/GraphQL Audits", "Mass Assignment Tests", "Rate Limit Probing"] }
     ]
   },
   {
     title: "Security Engineering",
     skills: [
-      { name: "Python", level: 88, status: "Active" },
-      { name: "React", level: 80, status: "Ready" },
-      { name: "Node.js", level: 78, status: "Ready" },
-      { name: "Firebase", level: 72, status: "Ready" }
+      { name: "Python", level: 88, status: "Active", subskills: ["Security Scripting", "Exploit Prototyping", "Automation Tools"] },
+      { name: "React", level: 80, status: "Ready", subskills: ["Secure SPA Architecture", "Input Sanitization", "CSP Compliance"] },
+      { name: "Node.js", level: 78, status: "Ready", subskills: ["Secure Routing", "Middleware Auth", "JWT Generation", "Helmet Configs"] },
+      { name: "Firebase", level: 72, status: "Ready", subskills: ["Database Security Rules", "Auth Services", "Serverless Configs"] }
     ]
   },
   {
     title: "Digital Forensics",
     skills: [
-      { name: "Log Analysis", level: 75, status: "Ready" },
-      { name: "Evidence Collection", level: 70, status: "Compiling" },
-      { name: "Incident Investigation", level: 80, status: "Active" }
+      { name: "Log Analysis", level: 75, status: "Ready", subskills: ["EVTX Event Logs Parsing", "Log Correlation", "Timeline Generation"] },
+      { name: "Evidence Collection", level: 70, status: "Compiling", subskills: ["Disk Imaging", "Registry Hive Extraction", "Memory Acquisition"] },
+      { name: "Incident Investigation", level: 80, status: "Active", subskills: ["IoC Threat Hunting", "Post-Breach Containment", "Volatility Analysis"] }
     ]
   }
 ];
@@ -139,7 +142,13 @@ export const projectsData: Project[] = [
     githubUrl: "https://github.com/nisargdedakiya/dnm-hunter",
     status: "Operational",
     role: "Lead Developer & Security Researcher",
-    image: "/images/projects/dnm-hunter.png"
+    image: "/images/projects/dnm-hunter.png",
+    securityFocus: "Attack Surface Management & Recon Automation",
+    metrics: [
+      { label: "Recon Automation", value: "80%" },
+      { label: "Critical Takeovers", value: "3 Found" },
+      { label: "Alert Latency", value: "< 2 min" }
+    ]
   },
   {
     id: "battleos",
@@ -158,7 +167,13 @@ export const projectsData: Project[] = [
     githubUrl: "https://github.com/nisargdedakiya/battleos",
     status: "Beta",
     role: "Lead Full-Stack Developer",
-    image: "/images/projects/battleos.png"
+    image: "/images/projects/battleos.png",
+    securityFocus: "Secure SaaS Architecture & Anti-Cheat Validation",
+    metrics: [
+      { label: "Active Players", value: "10,000+" },
+      { label: "Admin Overhead", value: "90% Reduction" },
+      { label: "Live Sync Latency", value: "< 500ms" }
+    ]
   },
   {
     id: "forensicdump-analyzer",
@@ -176,7 +191,13 @@ export const projectsData: Project[] = [
     githubUrl: "https://github.com/nisargdedakiya/forensidump-analyzer",
     status: "Development",
     role: "Security Tool Builder",
-    image: "/images/projects/forensicdump.png"
+    image: "/images/projects/forensicdump.png",
+    securityFocus: "Digital Forensics & Automated Log Incident Response",
+    metrics: [
+      { label: "Parsing Efficiency", value: "98% Faster" },
+      { label: "EVTX Log Speeds", value: "Instant Indexing" },
+      { label: "Telemetry Focus", value: "Memory & EVTX" }
+    ]
   }
 ];
 

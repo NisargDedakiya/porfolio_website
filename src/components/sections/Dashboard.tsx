@@ -71,7 +71,7 @@ export function Dashboard() {
   ];
 
   return (
-    <section id="dashboard" className="relative w-full py-24 bg-brand-bg/95 border-b border-white/5 z-10 px-6">
+    <section id="dashboard" className="relative w-full py-16 md:py-24 bg-brand-bg/95 border-b border-white/5 z-10 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-16 border-b border-brand-primary/10 pb-6">
@@ -96,7 +96,7 @@ export function Dashboard() {
               key={stat.title}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
             >
               <GlassCard className="p-5 flex items-center gap-4 hover:scale-[1.02] transition-transform duration-300">
@@ -135,7 +135,7 @@ export function Dashboard() {
                   key={intel.title}
                   initial={{ opacity: 0, scale: 0.98 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: false }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
                 >
                   <GlassCard

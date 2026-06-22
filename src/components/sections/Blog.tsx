@@ -36,7 +36,7 @@ export function Blog() {
   });
 
   return (
-    <section id="research" className="relative w-full py-24 bg-brand-bg/95 border-b border-brand-primary/5 z-10 px-6">
+    <section id="research" className="relative w-full py-16 md:py-24 bg-brand-bg/95 border-b border-brand-primary/5 z-10 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-16 border-b border-brand-primary/10 pb-6">

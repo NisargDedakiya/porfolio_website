@@ -73,7 +73,7 @@ export function Progression() {
   };
 
   return (
-    <section id="progression" className="relative w-full py-24 bg-brand-bg/90 border-b border-brand-primary/5 z-10 px-6">
+    <section id="progression" className="relative w-full py-16 md:py-24 bg-brand-bg/90 border-b border-brand-primary/5 z-10 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-16 border-b border-brand-primary/10 pb-6">
@@ -110,7 +110,7 @@ export function Progression() {
                 key={event.year}
                 initial="inactive"
                 whileInView="active"
-                viewport={{ once: false, margin: "-25% 0px -30% 0px" }}
+                viewport={{ once: true, margin: "-10% 0px" }}
                 className="relative flex items-start gap-6 group"
               >
                 {/* Timeline Indicator Dot */}

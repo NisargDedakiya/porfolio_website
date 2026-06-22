@@ -65,7 +65,7 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: loading ? 0 : 1 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
-        className="relative min-h-screen bg-brand-bg text-white overflow-hidden flex flex-col font-sans"
+        className="relative min-h-screen bg-brand-bg text-white overflow-x-hidden flex flex-col font-sans"
       >
         {/* Interactive Background Particle Mesh */}
         <NetworkMesh />

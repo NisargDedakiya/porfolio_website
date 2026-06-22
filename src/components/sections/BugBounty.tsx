@@ -23,7 +23,7 @@ const BugcrowdIcon = ({ className }: { className?: string }) => (
 
 export function BugBounty() {
   return (
-    <section id="bug-bounty" className="relative w-full py-24 bg-brand-bg/95 border-b border-brand-primary/5 z-10 px-6">
+    <section id="bug-bounty" className="relative w-full py-16 md:py-24 bg-brand-bg/95 border-b border-brand-primary/5 z-10 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-16 border-b border-brand-primary/10 pb-6">
@@ -56,7 +56,7 @@ export function BugBounty() {
                 key={platform.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-50px" }}
+                viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.5, delay: pIdx * 0.1 }}
               >
                 <GlassCard glowColor={glowColor} className="h-full flex flex-col justify-between gap-6">
