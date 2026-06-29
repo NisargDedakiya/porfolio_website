@@ -26,6 +26,7 @@ export interface Project {
   image: string;
   metrics?: { label: string; value: string }[];
   securityFocus?: string;
+  screenshots?: string[];
 }
 
 export interface Certification {
@@ -151,52 +152,34 @@ export const projectsData: Project[] = [
     ]
   },
   {
-    id: "battleos",
-    name: "Operation BattleOS",
-    tagline: "Create esports tournament SaaS platform.",
-    problem: "Organizing regional eSports tournaments is plagued by manual registration, player profile manipulation, unverified score reports, and slow matchmaking coordination.",
-    solution: "Designed and implemented BattleOS, a high-performance tournament management SaaS that automates team matching, verifies user gaming handles in real-time, and generates secure bracket states.",
-    technologies: ["React", "Node.js", "Firebase", "Express", "Tailwind CSS"],
+    id: "huntkit",
+    name: "Operation HuntKit",
+    tagline: "AI-Powered Bug Bounty Companion App (React Native + Claude AI)",
+    problem: "Bug hunters face high cognitive load switching between program scopes, terminal tools, note-taking apps, and severity calculators on the fly. This fragmented workflow slows down analysis and leads to missed vulnerability opportunities, especially when away from a main workstation.",
+    solution: "Designed and built HuntKit, a professional offline-first Android companion app that integrates Claude AI to analyze program scopes in 30 seconds. The app automatically generates attack paths, prioritized todo lists, custom tool stacks with real commands, and a 5-phase bug hunting framework with 41 auto-seeded tasks.",
+    technologies: ["React Native", "Expo SDK 54", "Claude AI API", "AsyncStorage", "EAS Build", "React Navigation"],
     features: [
-      "Automated double-elimination and round-robin bracket generation",
-      "Real-time game telemetry matching and anti-cheat confirmation indicators",
-      "Secure payment checkout integration for tournament registration fees",
-      "Sub-second live updates of brackets using WebSockets/Firestore listeners"
+      "AI Scope Analyzer: Paste any Bugcrowd/HackerOne program scope to get a complete exploit plan and prioritized todo list in 30 seconds",
+      "5-Phase Framework Checklist: 41 auto-seeded tasks per target (Recon → Scanning → Vuln Discovery → Exploitation → Reporting)",
+      "Findings Tracker & CVSS Calculator: Track findings with CVSS v3.1 calculator, custom status flow, and screenshot attachments for PoC",
+      "Tactical Reference & SOC Compliance: 40+ command reference with one-tap clipboard copy and an X-Bug-Bounty header generator"
     ],
-    impact: "Currently powers over 50 regional tournaments, orchestrating matches for 10,000+ active players with zero downtime and a 90% reduction in admin overhead.",
-    githubUrl: "https://github.com/nisargdedakiya/battleos",
-    status: "Beta",
-    role: "Lead Full-Stack Developer",
-    image: "/images/projects/battleos.png",
-    securityFocus: "Secure SaaS Architecture & Anti-Cheat Validation",
+    impact: "Successfully built, packaged via EAS Build, and installed on personal Android device. Used daily for active hunting on Bugcrowd and HackerOne to streamline scope analysis and export formatted bug reports.",
+    status: "Operational",
+    role: "Solo Developer & Security Researcher",
+    image: "/images/projects/huntkit.png",
+    securityFocus: "AI-Assisted Security & Mobile Vulnerability Hunting",
     metrics: [
-      { label: "Active Players", value: "10,000+" },
-      { label: "Admin Overhead", value: "90% Reduction" },
-      { label: "Live Sync Latency", value: "< 500ms" }
-    ]
-  },
-  {
-    id: "forensicdump-analyzer",
-    name: "Operation ForensicDump Analyzer",
-    tagline: "Automated Incident Forensics Parsing Utility.",
-    problem: "When a host is compromised, security teams face massive system dumps. Correlating system logs, registry activity, and memory traces manually delays response times by hours.",
-    solution: "Building a lightweight desktop & CLI tool that accepts standard forensic file exports, parses event files, generates unified CSV timelines, and highlights known Indicators of Compromise (IoC).",
-    technologies: ["Python", "Rust", "SQLite", "Electron"],
-    features: [
-      "Instant indexing and parsing of Windows Event Logs (EVTX)",
-      "Volatile memory image parsing via volatility core hooks",
-      "Timeline visualization mapping processes against network traffic spikes"
+      { label: "Max Bounty Mapped", value: "$100,000" },
+      { label: "SOC Compliant Header", value: "X-Bug-Bounty" },
+      { label: "Seeded Framework", value: "41 Tasks" }
     ],
-    impact: "Under active development to streamline incident response parsing from hours to less than three minutes.",
-    githubUrl: "https://github.com/nisargdedakiya/forensidump-analyzer",
-    status: "Development",
-    role: "Security Tool Builder",
-    image: "/images/projects/forensicdump.png",
-    securityFocus: "Digital Forensics & Automated Log Incident Response",
-    metrics: [
-      { label: "Parsing Efficiency", value: "98% Faster" },
-      { label: "EVTX Log Speeds", value: "Instant Indexing" },
-      { label: "Telemetry Focus", value: "Memory & EVTX" }
+    screenshots: [
+      "/images/projects/huntkit-target.jpg",
+      "/images/projects/huntkit-settings.jpg",
+      "/images/projects/huntkit-ai-analyzer.jpg",
+      "/images/projects/huntkit-add-target.jpg",
+      "/images/projects/huntkit-analytics.jpg"
     ]
   }
 ];

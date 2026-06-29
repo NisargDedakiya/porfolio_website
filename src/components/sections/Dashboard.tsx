@@ -4,13 +4,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Shield, ShieldAlert, Cpu, Database, Flame, Clock, Award, Terminal as TerminalIcon, CheckCircle2 } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { projectsData } from "@/data/portfolio";
 
 export function Dashboard() {
   const stats = [
     {
       title: "Projects Built",
-      value: "3 Active",
-      description: "Security automation & SaaS platforms",
+      value: `${projectsData.length} Active`,
+      description: "Security tools & mobile companion apps",
       icon: <Cpu className="w-5 h-5 text-brand-primary" />,
     },
     {
@@ -36,7 +37,7 @@ export function Dashboard() {
   const statuses = [
     { name: "Learning", desc: "Advanced Offensive & Defensive Tactics", status: "Active", color: "success" },
     { name: "Researching", desc: "API Security & Vulnerability Patterns", status: "Active", color: "blue" },
-    { name: "Building", desc: "Forensic Analysis & Recon Automation Tools", status: "Active", color: "red" },
+    { name: "Building", desc: "Mobile Security & AI Automation Tools", status: "Active", color: "red" },
   ];
 
   const threatIntel = [

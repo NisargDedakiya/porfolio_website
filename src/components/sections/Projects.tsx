@@ -47,7 +47,7 @@ export function Projects() {
             </p>
           </div>
           <div className="font-mono text-xs text-brand-secondary border border-brand-secondary/20 bg-brand-card/50 px-3 py-1.5 rounded flex items-center gap-2 self-start md:self-auto">
-            <span>Featured Work: 3 Projects</span>
+            <span>Featured Work: {projectsData.length} {projectsData.length === 1 ? "Project" : "Projects"}</span>
           </div>
         </div>
 
@@ -255,6 +255,38 @@ export function Projects() {
                                 ))}
                               </div>
                             </div>
+
+                            {/* Screenshots Gallery */}
+                            {project.screenshots && (
+                              <div className="md:col-span-2 border-t border-white/5 pt-6 mt-2">
+                                <h4 className="font-sans font-bold text-[10px] uppercase text-white/50 tracking-wider mb-4 flex items-center gap-2">
+                                  <span>Application Interface Telemetry</span>
+                                  <span className="h-[1px] flex-1 bg-white/5" />
+                                </h4>
+                                <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                                  {project.screenshots.map((screen, sIdx) => (
+                                    <div 
+                                      key={sIdx} 
+                                      className="relative aspect-[9/19] rounded-lg border border-white/10 overflow-hidden bg-brand-bg hover:border-brand-secondary/40 transition-colors group cursor-pointer"
+                                      onClick={() => window.open(screen, "_blank")}
+                                    >
+                                      <Image
+                                        src={screen}
+                                        alt={`Application screenshot ${sIdx + 1}`}
+                                        fill
+                                        sizes="(max-width: 640px) 50vw, 20vw"
+                                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                      />
+                                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                        <span className="text-[10px] font-mono text-white/90 border border-white/20 bg-white/5 px-2 py-1 rounded">
+                                          Expand
+                                        </span>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
 
                           </div>
                         </motion.div>
